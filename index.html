@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wick's Secret Puzzles</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">🇺🇸 EN</button>
+                <button class="lang-btn" data-lang="ar">🇮🇶 AR</button>
+            </div>
+            
+            <h1 class="title">
+                <span class="title-main" data-translate="title.main">Wick's Secret</span>
+                <span class="title-sub" data-translate="title.sub">Puzzle Challenge</span>
+            </h1>
+            
+            <div class="header-graphics">
+                <div class="circuit-pattern"></div>
+                <div class="data-stream"></div>
+                <div class="hologram-effect"></div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-glow"></div>
+                </div>
+                <span class="progress-text" data-translate="progress.text" id="progressText">0 / 10 Missions Completed</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="puzzle-card" id="puzzleCard">
+                <div class="puzzle-header">
+                    <h2 class="puzzle-title" id="puzzleTitle" data-translate="puzzles.0.title">Loading...</h2>
+                    <div class="puzzle-meta">
+                        <div class="puzzle-number" id="puzzleNumber">1</div>
+                        <div class="difficulty-stars" id="difficultyStars">★★☆☆☆</div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-graphics">
+                    <div class="neural-network"></div>
+                    <div class="code-rain"></div>
+                    <div class="geometric-patterns"></div>
+                </div>
+                
+                <div class="puzzle-content">
+                    <p class="puzzle-question" id="puzzleQuestion" data-translate="puzzles.0.question">Preparing your first challenge...</p>
+                    
+                    <div class="answer-section">
+                        <div class="input-container">
+                            <input type="text" class="answer-input" id="answerInput" placeholder="Enter your answer...">
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="submit-btn" id="submitBtn">
+                                <span class="btn-text" data-translate="ui.submit">Submit</span>
+                                <div class="btn-particles"></div>
+                                <div class="btn-glow"></div>
+                            </button>
+                            <button class="skip-btn" id="skipBtn">
+                                <span class="skip-icon">⏭️</span>
+                                <span class="skip-text" data-translate="ui.skip">Skip</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="tools-section" id="toolsSection" style="display: none;">
+                        <h3 class="tools-title" data-translate="ui.tools">🛠️ Mission Tools</h3>
+                        <div class="tools-grid" id="toolsGrid">
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-elements" id="interactiveElements">
+                        <div class="map-container" id="mapContainer" style="display: none;">
+                            <div class="map-header" data-translate="tools.map">📍 Satellite View</div>
+                            <div class="map-display" id="mapDisplay">
+                                <div class="coordinates" id="coordinates"></div>
+                                <div class="landmark-info" id="landmarkInfo"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="cipher-wheel-container" id="cipherWheelContainer" style="display: none;">
+                            <div class="cipher-header" data-translate="tools.cipher">🔐 Vigenère Cipher Tool</div>
+                            <div class="cipher-wheel" id="cipherWheel">
+                                <div class="cipher-input">
+                                    <input type="text" id="cipherText" placeholder="Enter encrypted text">
+                                    <input type="text" id="cipherKey" placeholder="Enter key">
+                                    <button id="decryptBtn">Decrypt</button>
+                                </div>
+                                <div class="cipher-result" id="cipherResult"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid-container" id="gridContainer" style="display: none;">
+                            <div class="grid-header" data-translate="tools.grid">🔢 Magic Square Grid</div>
+                            <div class="magic-grid" id="magicGrid"></div>
+                        </div>
+                        
+                        <div class="binary-container" id="binaryContainer" style="display: none;">
+                            <div class="binary-header" data-translate="tools.binary">💾 Binary to ASCII Converter</div>
+                            <div class="binary-converter">
+                                <div class="binary-input">
+                                    <span class="binary-sequence" id="binarySequence"></span>
+                                </div>
+                                <div class="ascii-output" id="asciiOutput"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-container" id="calculatorContainer" style="display: none;">
+                            <div class="calc-header" data-translate="tools.calculator">🧮 Scientific Calculator</div>
+                            <div class="calculator" id="calculator">
+                                <div class="calc-display" id="calcDisplay">0</div>
+                                <div class="calc-buttons" id="calcButtons"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="clock-container" id="clockContainer" style="display: none;">
+                            <div class="clock-header" data-translate="tools.clock">🕐 Analog Clock</div>
+                            <div class="analog-clock" id="analogClock">
+                                <div class="clock-face">
+                                    <div class="hour-hand" id="hourHand"></div>
+                                    <div class="minute-hand" id="minuteHand"></div>
+                                    <div class="center-dot"></div>
+                                </div>
+                                <div class="angle-display" id="angleDisplay">Angle: 0°</div>
+                            </div>
+                        </div>
+                        
+                        <div class="genetic-container" id="geneticContainer" style="display: none;">
+                            <div class="genetic-header" data-translate="tools.genetic">🧬 Genetic Code Table</div>
+                            <div class="genetic-code-table" id="geneticCodeTable"></div>
+                            <div class="dna-sequence" id="dnaSequence"></div>
+                        </div>
+                        
+                        <div class="morse-container" id="morseContainer" style="display: none;">
+                            <div class="morse-header" data-translate="tools.morse">📡 Morse Code Decoder</div>
+                            <div class="morse-decoder">
+                                <div class="morse-sequence" id="morseSequence"></div>
+                                <div class="morse-table" id="morseTable"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="chess-container" id="chessContainer" style="display: none;">
+                            <div class="chess-header" data-translate="tools.chess">♟️ Chess Position Analyzer</div>
+                            <div class="chess-board" id="chessBoard"></div>
+                            <div class="chess-notation" id="chessNotation"></div>
+                        </div>
+                        
+                        <div class="history-container" id="historyContainer" style="display: none;">
+                            <div class="history-header" data-translate="tools.history">📋 Mission History</div>
+                            <div class="answer-history" id="answerHistory"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="puzzle-actions">
+                        <div class="hint-section" id="hintSection" style="display: none;">
+                            <button class="hint-btn" id="hintBtn">
+                                <span class="hint-icon">💡</span>
+                                <span class="hint-text-btn" data-translate="ui.hint">Request Intel</span>
+                            </button>
+                            <p class="hint-text" id="hintText" style="display: none;"></p>
+                        </div>
+                        
+                        <div class="puzzle-stats">
+                            <div class="timer" id="timer" data-translate="ui.timer">⏱️ 00:00</div>
+                            <div class="attempts" id="attempts" data-translate="ui.attempts">Attempts: 0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="theme-indicator" id="themeIndicator">
+                <span class="theme-name" id="themeName">Mystery Theme</span>
+            </div>
+        </main>
+
+        <div class="modal" id="progressModal">
+            <div class="modal-content progress-modal-content">
+                <div class="progress-celebration" id="progressCelebration">🎯</div>
+                <h2 id="progressTitle">Great Job!</h2>
+                <p id="progressMessage">Keep going!</p>
+                <button class="continue-btn" id="continueBtn">Continue Mission</button>
+            </div>
+        </div>
+
+        <div class="modal" id="completionModal">
+            <div class="modal-content">
+                <div class="celebration">🎉</div>
+                <h2 data-translate="completion.title">Congratulations!</h2>
+                <p data-translate="completion.message">You've finished Wick's Secret! 🎊</p>
+                <p class="completion-message" data-translate="completion.description">Your mind is as sharp as your determination. Well done, puzzle master!</p>
+                <button class="restart-btn" id="restartBtn" data-translate="completion.restart">Play Again</button>
+            </div>
+        </div>
+
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
